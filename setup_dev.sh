@@ -1,3 +1,6 @@
 #!/bin/bash
-echo $"#/bin/sh\nblack .\n" > .git/hooks/pre-commit
+cat <<'EOF' > .git/hooks/pre-commit
+#!/bin/sh
+black .
+EOF
 chmod +x .git/hooks/pre-commit
