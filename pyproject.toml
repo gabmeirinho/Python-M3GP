@@ -24,11 +24,6 @@ documentation = "https://github.com/jespb/Python-M3GP"
 [project.license]
 text = "https://opensource.org/licenses/MIT"
 
-[project.optional-dependencies]
-dev = [
-    "black",
-]
-
 [build-system]
 build-backend = 'setuptools.build_meta'
 requires = [

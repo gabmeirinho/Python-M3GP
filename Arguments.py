@@ -4,7 +4,7 @@ from m3gp.MahalanobisDistanceClassifier import MahalanobisDistanceClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeRegressor
 
-# 
+#
 # By using this file, you are agreeing to this product's EULA
 #
 # This product can be obtained in https://github.com/jespb/Python-M3GP
@@ -16,8 +16,8 @@ from sklearn.tree import DecisionTreeRegressor
 # Operators to be used by the models
 # Only these operators are available. To add mode, edit m3gp.Node.calculate(self, sample)
 
-#OPERATORS = [("+",2),("-",2),("*",2),("/",2),("log2",1), ("max", 3)] # Example
-OPERATORS = [("+",2),("-",2),("*",2),("/",2)] # Default
+# OPERATORS = [("+",2),("-",2),("*",2),("/",2),("log2",1), ("max", 3)] # Example
+OPERATORS = [("+", 2), ("-", 2), ("*", 2), ("/", 2)]  # Default
 
 # Initial Maximum depth
 MAX_DEPTH = 6
@@ -41,7 +41,7 @@ ELITISM_SIZE = 1
 SHUFFLE = True
 
 # Dimensions maximum depth
-LIMIT_DEPTH=17
+LIMIT_DEPTH = 17
 
 # Number of runs (used by Main_M3GP_standalone.py)
 RUNS = 30
@@ -56,18 +56,21 @@ THREADS = 1
 DIM_MIN = 1
 
 # An unreachable number of dimensions
-DIM_MAX = 9999 
+DIM_MAX = 9999
 
 # Random state
 RANDOM_STATE = 42
 
 # Models wrapped by the M3GP models
-MODEL = [MahalanobisDistanceClassifier(), RandomForestClassifier(max_depth=6), DecisionTreeRegressor(max_depth=6)][0]
+MODEL = [
+    MahalanobisDistanceClassifier(),
+    RandomForestClassifier(max_depth=6),
+    DecisionTreeRegressor(max_depth=6),
+][0]
 MODEL_NAME = MODEL.__class__.__name__
 
 # Fitness used by the M3GP models
 FITNESS_TYPE = ["Accuracy", "MSE", "WAF", "2FOLD"][0]
-
 
 
 DATASETS_DIR = "datasets/"
@@ -77,61 +80,57 @@ DATASETS = ["heart.csv"]
 OUTPUT = "Classification"
 
 
-
-
 if "-dsdir" in argv:
-	DATASETS_DIR = argv[argv.index("-dsdir")+1]
+    DATASETS_DIR = argv[argv.index("-dsdir") + 1]
 
 if "-odir" in argv:
-	OUTPUT_DIR = argv[argv.index("-odir")+1]
+    OUTPUT_DIR = argv[argv.index("-odir") + 1]
 
 if "-d" in argv:
-	DATASETS = argv[argv.index("-d")+1].split(";")
+    DATASETS = argv[argv.index("-d") + 1].split(";")
 
 if "-runs" in argv:
-	RUNS = int(argv[argv.index("-runs")+1])
+    RUNS = int(argv[argv.index("-runs") + 1])
 
 if "-op" in argv:
-	OPERATORS = argv[argv.index("-op")+1].split(";")
-	for i in range(len(OPERATORS)):
-		OPERATORS[i] = OPERATORS[i].split(",")
-		OPERATORS[i][1] = int(OPERATORS[i][1])
+    OPERATORS = argv[argv.index("-op") + 1].split(";")
+    for i in range(len(OPERATORS)):
+        OPERATORS[i] = OPERATORS[i].split(",")
+        OPERATORS[i][1] = int(OPERATORS[i][1])
 
 if "-md" in argv:
-	MAX_DEPTH = int(argv[argv.index("-md")+1])
+    MAX_DEPTH = int(argv[argv.index("-md") + 1])
 
 if "-ps" in argv:
-	POPULATION_SIZE = int(argv[argv.index("-ps")+1])
+    POPULATION_SIZE = int(argv[argv.index("-ps") + 1])
 
 if "-mg" in argv:
-	MAX_GENERATION = int(argv[argv.index("-mg")+1])
+    MAX_GENERATION = int(argv[argv.index("-mg") + 1])
 
 if "-tf" in argv:
-	TRAIN_FRACTION = float(argv[argv.index("-tf")+1])
+    TRAIN_FRACTION = float(argv[argv.index("-tf") + 1])
 
 if "-ts" in argv:
-	TOURNAMENT_SIZE = int(argv[argv.index("-ts")+1])
+    TOURNAMENT_SIZE = int(argv[argv.index("-ts") + 1])
 
 if "-es" in argv:
-	ELITISM_SIZE = int(argv[argv.index("-es")+1])
+    ELITISM_SIZE = int(argv[argv.index("-es") + 1])
 
 if "-dontshuffle" in argv:
-	SHUFFLE = False
+    SHUFFLE = False
 
 if "-s" in argv:
-	VERBOSE = False
+    VERBOSE = False
 
 if "-t" in argv:
-	THREADS = int(argv[argv.index("-t")+1])
+    THREADS = int(argv[argv.index("-t") + 1])
 
 if "-dmin" in argv:
-	DIM_MIN = int(argv[argv.index("-dmin")+1])
+    DIM_MIN = int(argv[argv.index("-dmin") + 1])
 
 if "-dmax" in argv:
-	DIM_MAX = int(argv[argv.index("-dmax")+1])
+    DIM_MAX = int(argv[argv.index("-dmax") + 1])
 
 
 if "-rs" in argv:
-	RANDOM_STATE = int(argv[argv.index("-rs")+1])
-
-
+    RANDOM_STATE = int(argv[argv.index("-rs") + 1])
